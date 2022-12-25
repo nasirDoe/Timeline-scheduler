@@ -100,7 +100,7 @@ onBeforeMount(() => {
     </div>
     <div class="order-last w-auto lg:order-2">
       <button
-        class="relative z-[100] inline-block h-10 w-10 self-center outline-none lg:hidden"
+        class="relative inline-block h-10 w-10 self-center outline-none lg:hidden"
       >
         <IconSearch class="text-2xl text-white" />
       </button>
