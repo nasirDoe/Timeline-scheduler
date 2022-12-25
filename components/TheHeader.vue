@@ -37,8 +37,11 @@ const routes = [
 ];
 
 function clickOutside(e) {
-  if (buttonMenu.value?.contains(e.target)) return;
-  showMenu.value = false;
+  const windowSize = window.innerWidth;
+  if (windowSize <= 991) {
+    if (buttonMenu.value?.contains(e.target)) return;
+    showMenu.value = false;
+  }
 }
 
 function hideMenuOnMobile() {
