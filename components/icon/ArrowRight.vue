@@ -1,0 +1,14 @@
+<template>
+  <svg width="1em" height="1em" viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="m16.172 11l-5.364-5.364l1.414-1.414L20 12l-7.778 7.778l-1.414-1.414L16.172 13H4v-2z"
+    ></path>
+  </svg>
+</template>
+
+<script>
+export default {
+  name: 'RiArrowRightLine',
+};
+</script>
