@@ -3,6 +3,7 @@ import IcMenu from '~~/components/icon/Menu.vue';
 import IcMenuRight from '~~/components/icon/MenuRight.vue';
 
 const showMenu = ref(false);
+const buttonMenu = ref(null);
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
   },
 ];
 
+function clickOutside(e) {
+  if (buttonMenu.value?.contains(e.target)) return;
+  showMenu.value = false;
+}
+
 function hideMenuOnMobile() {
   const windowSize = window.innerWidth;
   if (windowSize >= 992) {
@@ -45,11 +51,13 @@ function hideMenuOnMobile() {
 }
 
 onBeforeUnmount(() => {
+  document.removeEventListener('click', clickOutside);
   window.removeEventListener('resize', hideMenuOnMobile);
 });
 
 onBeforeMount(() => {
   hideMenuOnMobile();
+  document.addEventListener('click', clickOutside);
   window.addEventListener('resize', hideMenuOnMobile);
 });
 </script>
@@ -61,12 +69,13 @@ onBeforeMount(() => {
     </div>
     <div class="order-first w-auto lg:order-2 lg:flex-1">
       <button
+        ref="buttonMenu"
         class="relative z-[100] inline-block h-10 w-10 self-center outline-none lg:hidden"
         @click="showMenu = !showMenu"
       >
         <component
           :is="showMenu ? IcMenuRight : IcMenu"
-          class="text-2xl text-white"
+          class="pointer-events-none text-2xl text-white"
         />
       </button>
       <Transition name="fade" mode="out-in">
