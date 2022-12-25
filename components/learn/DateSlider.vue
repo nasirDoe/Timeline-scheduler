@@ -90,6 +90,24 @@ watchEffect(() => {
         :modules="[Navigation]"
         :slides-per-view="7"
         :space-between="20"
+        :breakpoints="{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          480: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          640: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1000: {
+            slidesPerView: 7,
+            spaceBetween: 20,
+          },
+        }"
         @swiper="onSwiper"
         @slide-change="onSwiper"
       >
@@ -136,7 +154,7 @@ watchEffect(() => {
 <style scoped>
 .prev-slide,
 .next-slide {
-  @apply absolute top-6 z-[200] inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white transition-colors;
+  @apply absolute top-6 z-20 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white transition-colors;
   &:hover:not(.disabled-nav) {
     @apply bg-white/30;
   }

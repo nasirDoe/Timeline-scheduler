@@ -105,7 +105,10 @@ function startFrom(arr: number[], idx: number) {
 .timeline {
   @apply relative flex flex-nowrap overflow-x-auto;
   &__col {
-    @apply relative inline-flex min-h-[60vh] w-44 flex-none justify-center;
+    @apply relative inline-flex min-h-[500px] w-44 flex-none justify-center;
+    @screen xl {
+      @apply min-h-[60vh];
+    }
   }
   &__hour {
     @apply absolute left-1/2 top-0 h-full -translate-x-1/2;
@@ -127,7 +130,7 @@ function startFrom(arr: number[], idx: number) {
     }
   }
   &__scope {
-    @apply absolute top-1/2 left-14 -translate-y-1/2;
+    @apply absolute top-1/2 left-4 -translate-y-1/2 lg:left-14;
   }
 }
 </style>

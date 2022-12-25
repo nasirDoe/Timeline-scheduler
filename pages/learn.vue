@@ -55,7 +55,7 @@ const additionalEvents = [
   <div class="relative flex-1 overflow-x-hidden bg-gray-200/30 px-4">
     <!-- Slider Date -->
     <div class="-mx-4 bg-black px-4">
-      <div class="space-y-6 px-20 pt-6">
+      <div class="space-y-6 pt-6 md:px-6 xl:px-20">
         <LearnDatePicker month-picker @picked="onPickDate" />
         <LearnDateSlider
           :month="pickedDate"
@@ -65,9 +65,9 @@ const additionalEvents = [
       </div>
     </div>
     <!-- Content -->
-    <div v-if="selectedEvent?.events.length" class="py-7 pl-20">
-      <div class="-mx-6 flex flex-wrap">
-        <div class="w-full px-6 lg:w-4/12">
+    <div v-if="selectedEvent?.events.length" class="py-7 md:pl-6 xl:pl-20">
+      <div class="-mx-4 flex flex-wrap space-y-6 lg:space-y-0 xl:-mx-6">
+        <div class="w-full px-4 lg:w-4/12 xl:px-6">
           <h2 class="mb-4 text-2xl font-semibold">
             {{ dateSelectedEvent }}
           </h2>
@@ -140,9 +140,11 @@ const additionalEvents = [
             </TransitionGroup>
           </div>
         </div>
-        <div class="w-full px-6 lg:w-8/12">
+        <div class="w-full px-4 lg:w-8/12 xl:px-6">
           <h2 class="mb-6 text-2xl font-semibold">Timetable</h2>
-          <LearnTimeTable />
+          <div class="-mx-4 xl:mx-6">
+            <LearnTimeTable />
+          </div>
         </div>
       </div>
     </div>

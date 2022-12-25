@@ -4,35 +4,55 @@
 
 .header {
   height: var(--header);
-  @apply flex flex-wrap border-b border-white/20 bg-black px-10 lg:items-center;
+  @apply flex flex-wrap items-center justify-between border-b border-white/20 bg-black px-4 lg:px-10;
+  @screen lg {
+    @apply justify-start;
+  }
 }
 
 .navbar {
-  @apply w-full;
-
+  @apply fixed top-0 left-0 z-50 flex h-full w-full bg-black/50;
+  @screen lg {
+    @apply relative block h-auto bg-transparent;
+  }
   &__list {
-    @apply inline-flex flex-wrap;
+    padding-top: var(--header);
+    @apply inline-flex w-64 flex-col flex-wrap bg-black;
+    @screen lg {
+      @apply w-auto flex-row bg-transparent pt-0;
+    }
   }
   &__item {
-    @apply flex-auto;
+    @apply lg:flex-auto;
+    &:first-child {
+      @apply border-t border-white/30;
+      @screen lg {
+        @apply border-none;
+      }
+    }
   }
   &__link {
-    height: var(--header);
-    @apply relative flex items-center px-4 text-sm font-light text-white text-opacity-80;
+    @apply relative flex h-10 items-center px-4 text-base font-light text-white text-opacity-80;
+    @screen lg {
+      height: var(--header);
+      @apply text-sm;
+    }
     &.router-link-exact-active {
-      &::before,
-      &::after {
-        content: '';
-        @apply absolute bottom-0 z-20 inline-block h-4 w-3 border-b border-white/20 bg-black;
-      }
-      &::before {
-        @apply left-1/2 -translate-x-3 rounded-br-lg;
-      }
-      &::after {
-        @apply right-1/2 translate-x-3 rounded-bl-lg;
-      }
-      .additional {
-        @apply absolute bottom-0 left-1/2 z-10 h-px w-6 -translate-x-1/2 bg-black;
+      @screen lg {
+        &::before,
+        &::after {
+          content: '';
+          @apply absolute bottom-0 z-20 inline-block h-4 w-3 border-b border-white/20 bg-black;
+        }
+        &::before {
+          @apply left-1/2 -translate-x-3 rounded-br-lg;
+        }
+        &::after {
+          @apply right-1/2 translate-x-3 rounded-bl-lg;
+        }
+        .additional {
+          @apply absolute bottom-0 left-1/2 z-10 h-px w-6 -translate-x-1/2 bg-black;
+        }
       }
     }
   }
@@ -40,7 +60,10 @@
 
 /* Nav Icons */
 .nav-icon {
-  @apply flex flex-row space-x-3;
+  @apply hidden space-x-3;
+  @screen lg {
+    @apply flex flex-row;
+  }
   &__item {
     @apply mb-0 inline-block;
   }
