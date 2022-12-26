@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import IcMenu from '~~/components/icon/Menu.vue';
 import IcMenuRight from '~~/components/icon/MenuRight.vue';
 
-const showMenu = ref(false);
-const buttonMenu = ref(null);
+const showMenu = ref<boolean>(false);
+const buttonMenu = ref<HTMLElement | null>(null);
 
 const routes = [
   {
@@ -36,10 +36,10 @@ const routes = [
   },
 ];
 
-function clickOutside(e) {
+function clickOutside(e: Event) {
   const windowSize = window.innerWidth;
   if (windowSize <= 991) {
-    if (buttonMenu.value?.contains(e.target)) return;
+    if (buttonMenu.value?.contains(e.target as HTMLElement)) return;
     showMenu.value = false;
   }
 }
@@ -100,7 +100,7 @@ onBeforeMount(() => {
     </div>
     <div class="order-last w-auto lg:order-2">
       <button
-        class="relative inline-block h-10 w-10 self-center outline-none lg:hidden"
+        class="relative z-[100] inline-block h-10 w-10 self-center outline-none lg:hidden"
       >
         <IconSearch class="text-2xl text-white" />
       </button>
