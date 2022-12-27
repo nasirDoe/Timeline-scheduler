@@ -45,7 +45,7 @@ function clickOutside(e: Event) {
 }
 
 function hideMenuOnMobile() {
-  const windowSize = window.innerWidth;
+  const windowSize: number = window.innerWidth;
   if (windowSize >= 992) {
     showMenu.value = true;
   } else {
