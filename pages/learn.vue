@@ -27,7 +27,7 @@ const dateSelectedEvent = computed(() => {
 
   if (dateSelected) {
     dateLbl = new Date(dateSelected);
-    if (dateLbl === new Date()) {
+    if (dateLbl >= new Date()) {
       return 'Today';
     }
     return `${getDayNames[dateLbl.getDay()]}, ${dateLbl.getDate()}`;
